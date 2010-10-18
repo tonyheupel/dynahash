@@ -14,5 +14,5 @@ me = { 'First Name' => 'Tony', 'Last Name' => 'Heupel', :gender => :male }
 
 me.first_name #   => 'Tony'
 me.last_name  #   => 'Heupel'
-me.gender	  #   => :male
+me.gender     #   => :male
 
