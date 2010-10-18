@@ -1,0 +1,18 @@
+DynaHash 
+(c) 2010 Tony Heupel, All Rights Reserved
+
+-------------
+DynaHash extends Ruby's built-in Hash class instances to allow dot-notation
+access to keys in the hash.
+
+This is especially helpful in conjunction with the XmlSimple gem (gem install xml-simple)
+Examples:
+require 'rubygems'
+require 'dynahash'
+
+me = { 'First Name' => 'Tony', 'Last Name' => 'Heupel', :gender => :male }
+
+me.first_name #   => 'Tony'
+me.last_name  #   => 'Heupel'
+me.gender	  #   => :male
+
