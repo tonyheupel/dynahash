@@ -35,24 +35,24 @@ class TestDynaHash < Test::Unit::TestCase
     assert_equal(h['Zed Shaw'], h.Zed_Shaw)
   end
   
-  def test_remove_at_symbol
+  def test_replace_at_symbol
     h = {'@name' => 'Tony', 'gen@der' => :male}
     
     assert_equal('Tony', h.name)
-    assert_equal(:male, h.gender)
+    assert_equal(:male, h.gen_der)
   end
   
-  def test_remove_colon_symbol
-    h = {:name => 'Tony', 'gen:der' => :male}
+  def test_replace_colon_symbol
+    h = {:project => 'DynaHash', 'test::db' => :success}
 
-    assert_equal('Tony', h.name)
-    assert_equal(:male, h.gender)
+    assert_equal('DynaHash', h.project)
+    assert_equal(:success, h.test_db)
   end
   
-  def test_remove_dash_symbol
-    h = {'My-Name-Is' => 'Slim Shady', '-gender-' => :male}
+  def test_replace_dash_symbol
+    h = {'My-Name-Is' => 'Slim Shady', '---gender-' => :male}
 
-    assert_equal('Slim Shady', h.MyNameIs)
+    assert_equal('Slim Shady', h.My_Name_Is)
     assert_equal(:male, h.gender)
   end
   
@@ -62,7 +62,7 @@ class TestDynaHash < Test::Unit::TestCase
     assert_equal('Tony', h.name)
     assert_equal(:male, h.person_gender)
     assert_equal('coolness', h.dude_type)
-    assert_equal('um, ok', h.WTF)
+    assert_equal('um, ok', h.W_T_F)
     
   end
 end

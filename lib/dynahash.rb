@@ -4,13 +4,7 @@
 # An extension to Ruby's Hash class that allows for dot-notation
 # access to a Hash's keys as if they were just properties on the 
 # object.
-# It ignores:
-#  *  @ (xml-simple gem attribute prefix)
-#  *  : (symbol notation)
-#  *  - (dash in name)
-#
-# It replaces spaces with underscores to more closely resemble
-# a property name.
+# It strips out non-word characters and replaces them with '_'
 #
 # Based off of my .NET/C# HyperDynamo work at 
 # http://github.com/tonyheupel/hypercore
@@ -29,6 +23,8 @@ class Hash
     # the original name passed in and let the
     # caller handle it.
     name = m.to_s
-    self.keys.find(name) { |key| key.to_s.gsub(/(@|:|\-)/, '').gsub(' ', '_').casecmp(name) == 0 }
+	self.keys.find(name) { |key| 
+		key.to_s.gsub(/(@+|:+|\-+|\*+\.+)/, ' ').scan(/\w+/).join('_').casecmp(name) == 0 
+	}
   end
 end
