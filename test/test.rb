@@ -7,8 +7,8 @@ class TestDynaHash < Test::Unit::TestCase
   def test_case_matches
     h = {'UserName' => 'tonyheupel', 'Password' => 'yeah, right'}
     
-    assert_equal('tonyheupel', h.UserName)
-    assert_equal(h['UserName'], h.UserName)
+    assert_equal('tonyheupel', h.User_Name)
+    assert_equal(h['UserName'], h.User_Name)
     
     assert_equal('yeah, right', h.Password) 
     assert_equal(h['Password'], h.Password)
@@ -18,8 +18,8 @@ class TestDynaHash < Test::Unit::TestCase
   def test_case_insensitive
     h = {'UserName' => 'tonyheupel', 'Password' => 'yeah, right'}
     
-    assert_equal('tonyheupel', h.username)
-    assert_equal('tonyheupel', h.uSERnaMe)
+    assert_equal('tonyheupel', h.user_name)
+    assert_equal('tonyheupel', h.uSER_naMe)
     
     assert_equal('yeah, right', h.password)
     assert_equal('yeah, right', h.pASSwOrD)
@@ -54,6 +54,11 @@ class TestDynaHash < Test::Unit::TestCase
 
     assert_equal('Slim Shady', h.My_Name_Is)
     assert_equal(:male, h.gender)
+  end
+  
+  def test_replace_camel_case_with_underscore
+    h = { 'SomethingGreat' => 'A million bucks' }
+    assert_equal('A million bucks', h.something_great)
   end
   
   def test_all_removals_and_replacements_together

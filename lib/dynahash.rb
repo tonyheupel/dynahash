@@ -24,7 +24,9 @@ class Hash
     # caller handle it.
     name = m.to_s
 	self.keys.find(name) { |key| 
-		key.to_s.gsub(/(@+|:+|\-+|\*+\.+)/, ' ').scan(/\w+/).join('_').casecmp(name) == 0 
+		val = key.to_s.gsub(/(@+|:+|\-+|\*+\.+)/, ' ').gsub(/(?<before>[a-z])(?<after>[A-Z])/, '\k<before>_\k<after>').scan(/\w+/).join('_')
+		puts val
+		val.casecmp(name) == 0 
 	}
   end
 end
