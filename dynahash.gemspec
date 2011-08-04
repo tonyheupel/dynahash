@@ -4,7 +4,7 @@ $:.unshift lib unless $:.include?(lib)
 
 Gem::Specification.new do |s|
   s.name        = 'dynahash'
-  s.version     = '0.3.1'
+  s.version     = '0.3.2'
   s.authors     = ['Tony Heupel']
   s.email       = ['tonyheupel@gmail.com']
   s.homepage    = "http://github.com/tonyheupel/dynahash"
