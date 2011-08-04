@@ -61,6 +61,10 @@ class TestDynaHash < Test::Unit::TestCase
     assert_equal('A million bucks', h.something_great)
   end
   
+  def test_ignore_question_mark_on_end
+    h = {'Display' => true}
+    assert_equal(true, h.display?)
+  end
   def test_all_removals_and_replacements_together
     h = {'@name' => 'Tony', 'Person Gender' => :male, :dude_type => 'coolness', '-w:T@@F--' => 'um, ok' }
     
